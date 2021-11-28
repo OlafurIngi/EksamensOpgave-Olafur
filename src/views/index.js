@@ -28,3 +28,10 @@ document.addEventListener("DOMContentLoaded", (event) => {
       });
   });
 });
+
+
+document.getElementById("logout").addEventListener("submit", (event) => {
+  event.preventDefault();
+  localStorage.removeItem("user");
+  location.href = "/login.html";
+});
