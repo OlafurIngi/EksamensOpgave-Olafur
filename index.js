@@ -1,3 +1,5 @@
+// We require express
+
 const express = require("express");
 const app = express();
 
@@ -14,6 +16,6 @@ app.use(express.json());
 // Routes
 app.use("/users", userController);
 
-// Start server
-app.listen(PORT, console.log("Server is running"));
 
+// We start the server and provide a message for the terminal so we know it started
+app.listen(PORT, console.log("Server is running on port " + PORT ));
