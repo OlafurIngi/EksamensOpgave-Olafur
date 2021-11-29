@@ -1,4 +1,4 @@
-// Denne sektion er inspireret af Søren's forelæsning.
+// Denne sektion er inspireret af Søren's forelæsning og videor fra Thomas på canvas
 
 // We require file system
 var fs = require("fs");
@@ -49,5 +49,4 @@ class DB {
   }
 }
 
-// Det her er en singleton -- laaangt over pensum, men et ret fedt term at fyre af
 module.exports = new DB();

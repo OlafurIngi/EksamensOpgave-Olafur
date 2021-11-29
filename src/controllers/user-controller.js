@@ -38,6 +38,7 @@ router.delete("/delete", (req, res) => {
   res.status(200).send(true);
 });
 
+// POST method to Update the user
 
 
 module.exports = router;
