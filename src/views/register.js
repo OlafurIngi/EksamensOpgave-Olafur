@@ -18,6 +18,8 @@ document.addEventListener("DOMContentLoaded", (event) => {
       password: password,
     };
 
+
+    // Inspired from this https://www.codegrepper.com/code-examples/javascript/fetch+put+request+javascript
     // Fetch the information of the user
     fetch("http://localhost:3000/users/create", {
 

@@ -21,6 +21,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
     const user = JSON.parse(localStorage.getItem("user"));
 
 
+    // Inspired from this https://www.codegrepper.com/code-examples/javascript/fetch+put+request+javascript
     // Fetch the endpoint
     fetch("http://localhost:3000/users/delete", {
       // Here it is a delete method because we delete the user
