@@ -21,6 +21,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
     // Fetch the information of the user
     fetch("http://localhost:3000/users/create", {
 
+      // We use a post method to create the user
       method: "POST",
       headers: {
         "Content-Type": "application/json",
