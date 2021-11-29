@@ -7,7 +7,8 @@ document.addEventListener("DOMContentLoaded", (event) => {
             // Prevent any default action
             event.preventDefault();
 
-    // defining email and password by their ID in the form     
+    // defining email and password by their ID in the form, 
+    // and getting the value of that input with .value   
     const email = document.getElementById("email").value;
     const password = document.getElementById("password").value;
 
@@ -19,24 +20,30 @@ document.addEventListener("DOMContentLoaded", (event) => {
 
     // Fetch the information of the user
     fetch("http://localhost:3000/users/create", {
+
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
       body: JSON.stringify(user),
+
     })
 
 
       // If response is found go to login.html, if not, prompt error.
-      .then((response) => response.json())
-      .then((response) => {
-        if (response) {
+      .then((res) => res.json())
+      .then((res) => {
+        if (res) {
+
           location.href = "/login.html";
+
         }
       })
       // Catch the error 
       .catch(() => {
+
         window.alert("Error, try again");
+
       });
   });
 });
