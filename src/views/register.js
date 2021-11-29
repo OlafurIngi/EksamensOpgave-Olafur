@@ -1,4 +1,7 @@
+// Code inspired from https://www.youtube.com/watch?v=b91
+
 document.addEventListener("DOMContentLoaded", (event) => {
+  // Here I define the form that is related in the html file
   document.getElementById("form").addEventListener("submit", (event) => {
     event.preventDefault();
 

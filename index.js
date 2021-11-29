@@ -1,19 +1,23 @@
 // We require express
-
 const express = require("express");
 const app = express();
+
+
 
 // Controllers
 const userController = require("./src/controllers/user-controller");
 
+// I define the port which i want the server to run on
 const PORT = process.env.PORT || 3000;
 
 // Middleware - endnu et fedt term
 app.use(express.static("./src/views"));
-// Kommer som string -> JSON
+
+
+// Middleware which decodes the body that is coming in
 app.use(express.json());
 
-// Routes
+// Routes for the userControl const
 app.use("/users", userController);
 
 
