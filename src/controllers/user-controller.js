@@ -13,13 +13,15 @@ router.post("/create", (req, res) => {
 });
 
 
-// POST method to log in
+// POST method to log in, which calls the findUser method the db.js file
 router.post("/login", (req, res) => {
   const user = new userModel(req.body.email, req.body.password);
   const found = db.findUser(user);
   if (found) {
+    // If the password and email of the user is the same as the password and email in the databate, send true
     if (user.password == found.password) {
       res.status(200).send(true);
+    // Else send false
     } else {
       res.status(401).send(false);
     }
@@ -34,6 +36,7 @@ router.delete("/delete", (req, res) => {
   db.deleteUser(user);
   res.status(200).send(true);
 });
+
 
 
 module.exports = router;
