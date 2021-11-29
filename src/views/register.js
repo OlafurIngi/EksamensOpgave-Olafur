@@ -44,7 +44,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
       })
       // Catch the error 
       .catch(() => {
-
+       
         window.alert("Error, try again");
 
       });

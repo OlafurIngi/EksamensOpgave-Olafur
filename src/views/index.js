@@ -33,9 +33,9 @@ document.addEventListener("DOMContentLoaded", (event) => {
     })
     // if there is a response, remove the user from the json database,
     // and locate back to the login.html page
-      .then((response) => response.json())
-      .then((response) => {
-        if (response) {
+      .then((res) => res.json())
+      .then((res) => {
+        if (res) {
           localStorage.removeItem("user");
           location.href = "/login.html";
         }

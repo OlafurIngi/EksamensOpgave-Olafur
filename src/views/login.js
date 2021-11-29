@@ -41,13 +41,13 @@ document.addEventListener("DOMContentLoaded", (event) => {
     })
 
 
-      // If the response is found in the JSON database, go to the dashboard
+      // If the res is found in the JSON database, go to the dashboard
       // else prompt wrong information to the user
       // If there is an error catch it and prompt an error message
-      .then((response) => response.json())
-      .then((response) => {
+      .then((res) => res.json())
+      .then((res) => {
 
-        if (response) {
+        if (res) {
 
           // Here the information of the user is being saved so we stayed logged in
           localStorage.setItem("user", JSON.stringify(user));

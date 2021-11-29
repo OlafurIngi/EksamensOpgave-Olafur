@@ -9,6 +9,7 @@ const db = require("./../helpers/db");
 router.post("/create", (req, res) => {
   const user = new userModel(req.body.email, req.body.password);
   db.saveUser(user);
+
   res.status(200).send(true);
 });
 
