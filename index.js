@@ -16,3 +16,4 @@ app.use("/users", userController);
 
 // Start server
 app.listen(PORT, console.log("Server is running"));
+
