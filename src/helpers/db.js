@@ -1,36 +1,50 @@
+// Denne sektion er inspireret af Søren's forelæsning.
+
+// We require file system
 var fs = require("fs");
 
-const ABSOLUTE_PATH = __dirname + "/../../data";
-const USER_FILE = "/users.json";
+// Variables for the main path in the directory and for the user file in data
+
+const fileOfUser = "/users.json";
+
+const mainPath = __dirname + "/../../data";
+
 
 class DB {
   constructor() {
-    this.users = this.openFile(USER_FILE);
+    this.users = this.openFile(fileOfUser);
   }
-  /* CORE */
-  // Save file
-  saveFile(fileName, contentString) {
-    fs.writeFileSync(ABSOLUTE_PATH + fileName, contentString);
+ 
+    // Method to save file
+    saveFile(fileName, contentString) {
+    fs.writeFileSync(mainPath + fileName, contentString);
   }
 
-  // Open file
-  openFile(fileName) {
-    const file = fs.readFileSync(ABSOLUTE_PATH + fileName);
+    // Method to login from the database
+    saveUser(user) {
+    // This method pushes the user to the "database"
+    this.users.push(user);
+    this.saveFile(fileOfUser, JSON.stringify(this.users));
+  }
+
+  // Method to open file
+    openFile(fileName) {
+    const file = fs.readFileSync(mainPath + fileName);
     return JSON.parse(file);
   }
 
-  /* LOGIN DB */
-  saveUser(user) {
-    this.users.push(user);
-    this.saveFile(USER_FILE, JSON.stringify(this.users));
-  }
 
-  deleteUser(user) {
+
+  // The more specific applications
+
+  // Method to delete the user 
+    deleteUser(user) {
     this.users = this.users.filter((x) => x.email != user.email);
-    this.saveFile(USER_FILE, JSON.stringify(this.users));
+    this.saveFile(fileOfUser, JSON.stringify(this.users));
   }
 
-  findUser(user) {
+    // Method to find the user in the database
+    findUser(user) {
     return this.users.find((x) => user.email == x.email);
   }
 }
