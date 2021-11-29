@@ -5,7 +5,7 @@ const app = express();
 
 
 // Controllers
-const userController = require("./src/controllers/user-controller");
+const userControl = require("./src/controllers/user-controller");
 
 // I define the port which i want the server to run on
 const PORT = process.env.PORT || 3000;
@@ -18,7 +18,7 @@ app.use(express.static("./src/views"));
 app.use(express.json());
 
 // Routes for the userControl const
-app.use("/users", userController);
+app.use("/users", userControl);
 
 
 // We start the server and provide a message for the terminal so we know it started
