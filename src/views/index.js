@@ -47,8 +47,21 @@ document.addEventListener("DOMContentLoaded", (event) => {
 });
 
 
-document.getElementById("logout").addEventListener("submit", (event) => {
-  event.preventDefault();
-  Storage.removeItem("user");
-  location.href = "login.html";
+// Add event listener 
+document.addEventListener("DOMContentLoaded", (event) => {
+  // Define the form for logout
+  const form = document.getElementById("logout")
+
+  // Add event listener to the form in form of an event
+  form.addEventListener("submit", (event) => {
+
+    // Prevent default action
+    event.preventDefault();
+
+    // Removes the user from the localstorage on the page
+    localStorage.removeItem("user");
+    // Sends you back to the login page
+    location.href = "login.html";
+  });
+
 });
