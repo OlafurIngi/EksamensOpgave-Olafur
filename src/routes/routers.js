@@ -3,6 +3,7 @@ const express = require("express");
 const router = express.Router();
 const userModel = require("../models/user");
 const db = require("../helpers/db");
+const formData = require("express-form-data");
 
 
 // POST method to create a user, which calls the saveUser method from the db.js file.
@@ -38,7 +39,35 @@ router.delete("/delete", (req, res) => {
   res.status(200).send(true);
 });
 
-// POST method to Update the user
+// POST method to Update the user (NOT DONE)
+
+
+
+
+// POST method to create a product on the home site
+
+
+const pictures = {
+  uploadDir: "/../../data/product/uploads"
+}
+
+const products = [];
+
+router.post("/item", formData.parse(pictures), (req, res, next) => {
+  let { title, price, brand } = req.body;
+  let thumbnail = req.files.thumbnail.path.replace('\\', '/');
+
+  products.push({ title, price, brand, thumbnail });
+  console.log(products);
+  res.send();
+
+})
+
+router.get('/items', (req, res) => {
+  res.json(products);
+})
+
+
 
 
 module.exports = router;

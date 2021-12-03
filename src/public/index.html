@@ -3,20 +3,42 @@
     <script src="index.js"></script>
   </head>
   <body>
-    <h1>Dashboard</h1>
+    <h1>Phone sale </h1>
 
     <!--A form to delete the email and password from users.json-->
     <form id="delete">
       <input value="Delete" type="submit" />
-
     </form>
+
     <!--A form to logout from the dashboard and get directed to the login page-->
     <form id="logout">
       <input value="Logout" type="submit" />
     </form>
+
     <!--A form which redirects the user to the update site-->
     <form action="update.html">
       <input type="submit" value="Update your password" />
   </form>
+
+  <!--A form which allows the user to create a product and post it-->
+  <p>Submit your product!</p>
+  <form id="submitForm">
+    Title: <input type="input" name="title" placeholder="Enter title of phone">
+    <br>
+    Price: <input type="input" name="price" placeholder="Enter price of phone">
+    <br>
+    Brand:  <select name="brand">
+      <option value="Apple">Apple</option>
+      <option value="Samsung">Samsung</option>
+      <option value="Huawei">Huawei</option>
+    </select>
+    <br>
+    Photo: <input type="file" name="thumbnail">
+    <br>
+    Submit: <button type="submit">Submit</button>
+  </form>
+  <button id="refresh">Refresh your products</button>
+  <table id="list"></table>
+
   </body>
 </html>

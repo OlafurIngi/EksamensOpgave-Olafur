@@ -48,7 +48,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
 });
 
 
-// Add event listener 
+// Button to logout of account
 document.addEventListener("DOMContentLoaded", (event) => {
   // Define the form for logout
   const form = document.getElementById("logout")
@@ -66,3 +66,47 @@ document.addEventListener("DOMContentLoaded", (event) => {
   });
 
 });
+
+// Submit form functionality
+document.addEventListener("DOMContentLoaded", (event) => {
+  const form = document.getElementById("submitForm")
+
+
+    form.addEventListener('submit', async (event) => {
+      event.preventDefault();
+
+      const formData = new  FormData(form)
+
+      await fetch("http//localhost:3000/products/item", {
+        method: "POST",
+        body: formData
+      });
+    });
+
+    let refresh = document.getElementById("refresh");
+    let list = document.getElementById("list");
+
+    refresh.addEventListener('click', async () => {
+      list.innerHTML = `
+      <tr>
+        <th>Title</th>
+        <th>Price</th>
+        <th>Brand</th>
+        <th>Photo</th>
+      </tr>
+      `;
+
+      await fetch("http//localhost:3000/products/items", {
+        method: "GET",
+      })
+      .then((res) => res.json())
+      .then((res) => {
+        console.log(res);
+      })
+    });
+
+
+
+});
+
+
