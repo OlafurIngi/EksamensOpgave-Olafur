@@ -5,13 +5,13 @@ const app = express();
 
 
 // Controllers
-const userControl = require("./src/controllers/user-controller");
+const userControl = require("./src/routes/routers");
 
 // I define the port which i want the server to run on
 const PORT = process.env.PORT || 3000;
 
 // Middleware - endnu et fedt term
-app.use(express.static("./src/views"));
+app.use(express.static("./src/public"));
 
 
 // Middleware which decodes the body that is coming in

@@ -1,8 +1,8 @@
 // Constants that will be used multiple times
 const express = require("express");
 const router = express.Router();
-const userModel = require("./../models/user");
-const db = require("./../helpers/db");
+const userModel = require("../models/user");
+const db = require("../helpers/db");
 
 
 // POST method to create a user, which calls the saveUser method from the db.js file.
