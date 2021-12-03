@@ -102,11 +102,20 @@ document.addEventListener("DOMContentLoaded", (event) => {
       .then((res) => res.json())
       .then((res) => {
         console.log(res);
-      })
+
+        res.forEach((e) => {
+          list.innerHTML += `
+          <tr>
+            <td>${e.title}</td>
+            <td>${e.price}</td>
+            <td>${e.brand}</td>
+            <td><img src="${e.thumbnail}" style="height:100px; width:100px;"</td>
+          </tr>
+          `
+        })
+          
+        });
+      });
     });
-
-
-
-});
 
 
