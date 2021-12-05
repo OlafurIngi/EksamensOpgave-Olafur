@@ -67,7 +67,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
 
 });
 
-// Submit form functionality
+// Submit form functionality and table view of products functionality
 document.addEventListener("DOMContentLoaded", (event) => {
   const form = document.getElementById("submitForm")
 

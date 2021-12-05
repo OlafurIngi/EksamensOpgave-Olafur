@@ -7,7 +7,7 @@ var fs = require("fs");
 
 const fileOfUser = "/users.json";
 
-const mainPath = __dirname + "/../../data";
+const mainPathOfUser = __dirname + "/../../data";
 
 
 class DB {
@@ -17,7 +17,7 @@ class DB {
  
     // Method to save file
     saveFile(fileName, contentString) {
-    fs.writeFileSync(mainPath + fileName, contentString);
+    fs.writeFileSync(mainPathOfUser + fileName, contentString);
   }
 
     // Method to login from the database
@@ -29,7 +29,7 @@ class DB {
 
   // Method to open file
     openFile(fileName) {
-    const file = fs.readFileSync(mainPath + fileName);
+    const file = fs.readFileSync(mainPathOfUser + fileName);
     return JSON.parse(file);
   }
 

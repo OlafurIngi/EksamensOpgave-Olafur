@@ -6,7 +6,7 @@ var FormData = require("form-data")
 
 
 // Controllers
-const userControl = require("./src/routes/routers");
+const routers = require("./src/routes/routers");
 
 // I define the port which i want the server to run on
 const PORT = process.env.PORT || 3000;
@@ -20,10 +20,10 @@ app.use("/uploads", express.static("uploads"))
 // Middleware which decodes the body that is coming in
 app.use(express.json());
 
-// Routes for the userControl const
-app.use("/users", userControl);
+// Routes for the routers const
+app.use("/users", routers);
 
-app.use("/products", userControl);
+app.use("/products", routers);
 
 
 // We start the server and provide a message for the terminal so we know it started
