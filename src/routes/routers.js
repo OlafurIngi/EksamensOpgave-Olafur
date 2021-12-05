@@ -2,6 +2,7 @@
 const express = require("express");
 const router = express.Router();
 const userModel = require("../models/user");
+const productModel = require("../models/product");
 const database = require("../helpers/db");
 const formData = require("express-form-data");
 
@@ -48,7 +49,7 @@ router.delete("/delete", (req, res) => {
 
 
 const pictures = {
-  uploadDir: "/../../data/product/uploads"
+  uploadDir: "/../../../data/product/uploads"
 }
 
 const products = [];

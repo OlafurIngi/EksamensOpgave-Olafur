@@ -14,7 +14,7 @@ const PORT = process.env.PORT || 3000;
 // Middleware
 app.use(express.static("./src/public"));
 
-app.use("/uploads", express.static("uploads"))
+app.use(express.static("./data/product/uploads"));
 
 
 // Middleware which decodes the body that is coming in
