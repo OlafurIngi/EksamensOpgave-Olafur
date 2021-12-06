@@ -4,6 +4,7 @@ const router = express.Router();
 const userModel = require("../models/user");
 const productModel = require("../models/product");
 const database = require("../helpers/db");
+const databaseProducts = require("../helpers/dbprod");
 const formData = require("express-form-data");
 
 
@@ -49,25 +50,37 @@ router.delete("/delete", (req, res) => {
 
 // POST method to create a product on the home site
 const photos = {
-  uploadDir: "/../../data/product/uploads"
+  uploadDir: "/../../data/uploads"
 }
 
 const products = [];
 
+
+
+router.post("/item", formData.parse(photos), (req, res) => {
+  const product = new productModel(req.body.title, req.body.price, req.body.brand, req.body.thumbnail);
+  databaseProducts.saveProduct(product);
+
+  res.status(200).send(true);
+});
+
+/*
 router.post("/item", formData.parse(photos), (req, res, next) => {
   let { title, price, brand, thumbnail } = req.body;
   // let thumbnail = req.files.thumbnail.path.replace('\\', '/');
+
+
+
 
   products.push({ title, price, brand, thumbnail });
   console.log(products);
   res.send();
 
-})
+})*/
 
 router.get('/items', (req, res) => {
   res.json(products);
 })
-
 
 
 

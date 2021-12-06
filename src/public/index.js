@@ -81,12 +81,12 @@ document.addEventListener("DOMContentLoaded", (event) => {
       formData.forEach((value, key) => (data[key] = value))
       console.log(data)
 
-      await fetch("http://localhost:3000/products/item", {
+      await fetch("products/item", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
-        body: data
+        body: JSON.stringify(data)
       });
     });
 

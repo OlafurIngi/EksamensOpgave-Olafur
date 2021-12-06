@@ -14,8 +14,7 @@ const PORT = process.env.PORT || 3000;
 // Middleware
 app.use(express.static("./src/public"));
 
-app.use(express.static("./data/product/uploads"));
-
+app.use(express.json({limit: '1gb'}));
 
 // Middleware which decodes the body that is coming in
 app.use(express.json());
