@@ -116,7 +116,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
             <td>${e.title}</td>
             <td>${e.price}</td>
             <td>${e.brand}</td>
-            <td><img src="${e.thumbnail}" style="height:100px; width:100px;"</td>
+            <td> <img src="${e.thumbnail}" style="height:100px; width:100px;"</td>
           </tr>
           `
         })
@@ -126,44 +126,4 @@ document.addEventListener("DOMContentLoaded", (event) => {
     });
 
 
-// Delete your product functionality
-document.addEventListener("DOMContentLoaded", (event) => {
-
-  // This is the event which deletes the user.
-
-  // here we define the form ("delete") for delete
-  const form = document.getElementById("deleteProduct")
- form.addEventListener("submit", (event) => {
-
-    // Prevent any default action
-    event.preventDefault();
-
-    // Create a constant for the product in the json database
-    const product = JSON.parse(localStorage.getItem("product"));
-
-
-    // Inspired from this https://www.codegrepper.com/code-examples/javascript/fetch+put+request+javascript
-    // Fetch the endpoint
-    fetch("http://localhost:3000/products/deleteProduct", {
-      // Here it is a delete method because we delete the product
-      method: "DELETE",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(product),
-    })
-    // if there is a response, remove the product from the json database,
-    // and locate back to the Home site page
-      .then((res) => res.json())
-      .then((res) => {
-        if (res) {
-          localStorage.removeItem("product");
-          location.href = "/index.html";
-        }
-      })
-      // if there is an error catch it with a window alert message
-      .catch(() => {
-        window.alert("Error, try again");
-      });
-  });
-});
+// Delete your product functionality (NOT DONE)
