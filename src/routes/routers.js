@@ -45,18 +45,18 @@ router.delete("/delete", (req, res) => {
 
 
 
+
+
 // POST method to create a product on the home site
-
-
-const pictures = {
-  uploadDir: "/../../../data/product/uploads"
+const photos = {
+  uploadDir: "/../../data/product/uploads"
 }
 
 const products = [];
 
-router.post("/item", formData.parse(pictures), (req, res, next) => {
-  let { title, price, brand } = req.body;
-  let thumbnail = req.files.thumbnail.path.replace('\\', '/');
+router.post("/item", formData.parse(photos), (req, res, next) => {
+  let { title, price, brand, thumbnail } = req.body;
+  // let thumbnail = req.files.thumbnail.path.replace('\\', '/');
 
   products.push({ title, price, brand, thumbnail });
   console.log(products);
