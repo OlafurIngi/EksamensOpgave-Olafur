@@ -53,10 +53,6 @@ const photos = {
   uploadDir: "/../../data/uploads"
 }
 
-const products = [];
-
-
-
 router.post("/item", formData.parse(photos), (req, res) => {
   const product = new productModel(req.body.title, req.body.price, req.body.brand, req.body.thumbnail);
   databaseProducts.saveProduct(product);
@@ -69,19 +65,22 @@ router.post("/item", formData.parse(photos), (req, res, next) => {
   let { title, price, brand, thumbnail } = req.body;
   // let thumbnail = req.files.thumbnail.path.replace('\\', '/');
 
-
-
-
   products.push({ title, price, brand, thumbnail });
   console.log(products);
   res.send();
 
 })*/
-
+// Get method to get table overview of all products
 router.get('/items', (req, res) => {
-  res.json(products);
+  res.json();
 })
 
+// Delete method to delete a product
+router.delete("/deleteProduct", (req, res) => {
+  const product = new productModel(req.body.title, req.body.price, req.body.brand, req.body.thumbnail);
+  databaseProducts.deleteProduct(product);
+  res.status(200).send(true);
+});
 
 
 module.exports = router;
