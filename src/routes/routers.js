@@ -60,16 +60,6 @@ router.post("/item", formData.parse(photos), (req, res) => {
   res.status(200).send(true);
 });
 
-/*
-router.post("/item", formData.parse(photos), (req, res, next) => {
-  let { title, price, brand, thumbnail } = req.body;
-  // let thumbnail = req.files.thumbnail.path.replace('\\', '/');
-
-  products.push({ title, price, brand, thumbnail });
-  console.log(products);
-  res.send();
-
-})*/
 // Get method to get table overview of all products
 router.get('/items', (req, res) => {
   res.json();
