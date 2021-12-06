@@ -7,12 +7,10 @@ var fs = require("fs");
 
 const fileOfUser = "/users.json";
 
-const fileofProduct = "/products.json";
-
 const mainPathOfUser = __dirname + "/../../data";
 
 
-class DB {
+class DBuser {
   constructor() {
     this.users = this.openFile(fileOfUser);
   }
@@ -51,5 +49,5 @@ class DB {
   }
 }
 
-module.exports = new DB();
+module.exports = new DBuser();
 

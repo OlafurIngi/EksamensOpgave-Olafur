@@ -79,7 +79,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
 
       const data = {}
       formData.forEach((value, key) => (data[key] = value))
-      console.log(data)
+      
 
       await fetch("products/item", {
         method: "POST",
