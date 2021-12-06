@@ -103,7 +103,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
       </tr>
       `;
 
-      await fetch("http//localhost:3000/products/items", {
+      await fetch("products/items", {
         method: "GET",
       })
       .then((res) => res.json())

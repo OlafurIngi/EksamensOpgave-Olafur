@@ -6,7 +6,7 @@ const productModel = require("../models/product");
 const database = require("../helpers/db");
 const databaseProducts = require("../helpers/dbprod");
 const formData = require("express-form-data");
-
+const productData = require("../../data/products");
 
 // POST method to create a user, which calls the saveUser method from the database.js file.
 router.post("/create", (req, res) => {
@@ -62,13 +62,13 @@ router.post("/item", formData.parse(photos), (req, res) => {
 
 // Get method to get table overview of all products
 router.get('/items', (req, res) => {
-  res.json();
+  res.json(productData);
 })
 
 // Delete method to delete a product
 router.delete("/deleteProduct", (req, res) => {
   const product = new productModel(req.body.title, req.body.price, req.body.brand, req.body.thumbnail);
-  databaseProducts.deleteProduct(product);
+  databaseProducts.deleteProduct(productData);
   res.status(200).send(true);
 });
 
