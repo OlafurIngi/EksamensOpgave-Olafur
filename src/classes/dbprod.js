@@ -37,7 +37,6 @@ class DBproducts {
   
     // Method to delete the product 
       deleteProduct(product) {
-      
       this.saveFile(fileofProduct, JSON.stringify(this.products.filter((x) => x.title != product.title)));
     }
   

@@ -71,16 +71,18 @@ document.addEventListener("DOMContentLoaded", (event) => {
 document.addEventListener("DOMContentLoaded", (event) => {
   const form = document.getElementById("submitForm")
 
-
+    // Here we make an asynchronized function
     form.addEventListener('submit', async (event) => {
       event.preventDefault();
 
+      // We use FormData
       const formData = new  FormData(form)
 
       const data = {}
       formData.forEach((value, key) => (data[key] = value))
       console.log(data);
 
+      // The fetch request of the endpoint, it is a post method
       await fetch("products/item", {
         method: "POST",
         headers: {
@@ -91,10 +93,12 @@ document.addEventListener("DOMContentLoaded", (event) => {
     });
     
 
+    // Button to view table of Products functionality
     let refresh = document.getElementById("refresh");
     let list = document.getElementById("list");
 
     refresh.addEventListener('click', async () => {
+      // Write HTML directly in JS, make the table headers
       list.innerHTML = `
       <tr>
         <th>Title</th>
@@ -104,6 +108,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
       </tr>
       `;
 
+      // We get the information from the database in products.json
       await fetch("products/items", {
         method: "GET",
       })
@@ -111,6 +116,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
       .then((res) => {
         console.log(res);
 
+        // For each element produce the data of heading
         res.forEach((e) => {
           list.innerHTML += `
           <tr>

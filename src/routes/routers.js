@@ -3,8 +3,8 @@ const express = require("express");
 const router = express.Router();
 const userModel = require("../models/user");
 const productModel = require("../models/product");
-const database = require("../helpers/db");
-const databaseProducts = require("../helpers/dbprod");
+const database = require("../classes/db");
+const databaseProducts = require("../classes/dbprod");
 const formData = require("express-form-data");
 const productData = require("../../data/products");
 
@@ -55,6 +55,7 @@ const photos = {
 }
 
 router.post("/item", formData.parse(photos), (req, res) => {
+  // Define product from our model in helpers
   const product = new productModel(req.body.title, req.body.price, req.body.brand, req.body.thumbnail);
   databaseProducts.saveProduct(product);
   res.status(200).send(true);

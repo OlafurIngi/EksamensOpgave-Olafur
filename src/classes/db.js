@@ -29,7 +29,6 @@ class DBuser {
 
   // Method to open file
     openFile(fileName) {
-    //const file = fs.readFileSync(mainPathOfUser + fileName);
     return JSON.parse(fs.readFileSync(mainPathOfUser + fileName));
   }
 
@@ -39,7 +38,6 @@ class DBuser {
 
   // Method to delete the user 
     deleteUser(user) {
-    // this.users = this.users.filter((x) => x.email != user.email);
     this.saveFile(fileOfUser, JSON.stringify(this.users.filter((x) => x.email != user.email)));
   }
 
