@@ -57,7 +57,6 @@ const photos = {
 router.post("/item", formData.parse(photos), (req, res) => {
   const product = new productModel(req.body.title, req.body.price, req.body.brand, req.body.thumbnail);
   databaseProducts.saveProduct(product);
-
   res.status(200).send(true);
 });
 

@@ -89,6 +89,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
         body: JSON.stringify(data)
       });
     });
+    
 
     let refresh = document.getElementById("refresh");
     let list = document.getElementById("list");
