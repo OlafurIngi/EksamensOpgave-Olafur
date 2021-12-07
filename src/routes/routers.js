@@ -66,10 +66,17 @@ router.get('/items', (req, res) => {
   res.json(productData);
 })
 
+// Get method to get Phone category
+router.get('/category', (req, res) => {
+  res.json(productData.brand);
+})
+
 // Delete method to delete a product (NOT DONE)
 router.delete("/deleteProduct", (req, res) => {
   
 });
+
+
 
 
 module.exports = router;

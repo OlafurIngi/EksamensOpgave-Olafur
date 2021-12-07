@@ -95,11 +95,11 @@ document.addEventListener("DOMContentLoaded", (event) => {
 
     // Button to view table of Products functionality
     let refresh = document.getElementById("refresh");
-    let list = document.getElementById("list");
+    let table = document.getElementById("table");
 
     refresh.addEventListener('click', async () => {
       // Write HTML directly in JS, make the table headers
-      list.innerHTML = `
+      table.innerHTML = `
       <tr>
         <th>Title</th>
         <th>Price</th>
@@ -118,7 +118,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
 
         // For each element produce the data of heading
         res.forEach((e) => {
-          list.innerHTML += `
+          table.innerHTML += `
           <tr>
             <td>${e.title}</td>
             <td>${e.price}</td>
@@ -126,11 +126,14 @@ document.addEventListener("DOMContentLoaded", (event) => {
             <td> <img src="${e.thumbnail}" style="height:100px; width:100px;"</td>
           </tr>
           `
-        })
-          
+          });    
         });
       });
     });
+
+
+// View categories functionality (NOT DONE)
+
 
 
 // Delete your product functionality (NOT DONE)
