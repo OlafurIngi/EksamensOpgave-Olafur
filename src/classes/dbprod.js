@@ -10,6 +10,8 @@ const fileofProduct = "/products.json";
 const mainPathOfProduct = __dirname + "/../../data";
 
 class DBproducts {
+
+  
     constructor() {
       this.products = this.openFile(fileofProduct);
     }
@@ -40,10 +42,6 @@ class DBproducts {
       this.saveFile(fileofProduct, JSON.stringify(this.products.filter((x) => x.title != product.title)));
     }
   
-      // Method to find the product in the database
-      findProduct(product) {
-      return this.products.find((x) => product.title == x.title);
-    }
   }
   
   module.exports = new DBproducts();

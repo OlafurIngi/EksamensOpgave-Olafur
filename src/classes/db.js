@@ -11,6 +11,8 @@ const mainPathOfUser = __dirname + "/../../data";
 
 
 class DBuser {
+
+  
   constructor() {
     this.users = this.openFile(fileOfUser);
   }

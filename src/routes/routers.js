@@ -6,6 +6,7 @@ const productModel = require("../models/product");
 const database = require("../classes/db");
 const databaseProducts = require("../classes/dbprod");
 const formData = require("express-form-data");
+const userData = require("../../data/users");
 const productData = require("../../data/products");
 
 
@@ -43,7 +44,26 @@ router.delete("/delete", (req, res) => {
 });
 
 // POST method to Update the user (NOT DONE)
+router.put("/update", (req, res) => {
+  const user = new userModel(req.body.email, req.body.password);
 
+  const account = userData[user];
+
+  if (!account) {
+    return res
+            .status(404)
+            .json({ error: 'User not found' });
+  }
+  if (req.body.email) {
+    account.email = req.body.password;
+  }
+
+  if (req.body.password) {
+    account.password = req.body.password;
+  }
+
+  return res.status(201).json(account);
+})
 
 
 
