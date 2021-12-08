@@ -26,9 +26,11 @@ document.addEventListener("DOMContentLoaded", (event) => {
       password: password,
     };
 
+    const endpoint = "http://localhost:3000/users/login";
+    
     // Inspired from this https://www.codegrepper.com/code-examples/javascript/fetch+put+request+javascript
     // Fetch the information of the user in the database
-    fetch("http://localhost:3000/users/login", {
+    fetch(endpoint, {
 
       // We use a post method to login the user
       method: "POST",

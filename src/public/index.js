@@ -126,7 +126,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
             <td> <img src="${e.thumbnail}" style="height:100px; width:100px;"</td>
           </tr>
           `
-          });    
+          });
         });
       });
     });

@@ -18,10 +18,11 @@ document.addEventListener("DOMContentLoaded", (event) => {
       password: password,
     };
 
+    const endpoint = "http://localhost:3000/users/create";
 
     // Inspired from this https://www.codegrepper.com/code-examples/javascript/fetch+put+request+javascript
     // Fetch the information of the user
-    fetch("http://localhost:3000/users/create", {
+    fetch(endpoint, {
 
       // We use a post method to create the user
       method: "POST",
