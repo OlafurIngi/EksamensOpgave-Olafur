@@ -16,6 +16,7 @@ router.post("/create", (req, res) => {
   database.saveUser(user);
 
   res.status(200).send(true);
+  
 });
 
 
