@@ -48,7 +48,23 @@ describe(`POST http://localhost:3000/users/create`, () => {
                 done();
         });
     });
-    it('Should add three users to users.json when test is passed', (done) => {
+
+    it('Should pass if body is not an object', (done) => {
+
+        chai
+                .request('http://localhost:3000/users/create')
+                .post('')
+                .end((err, res) => {
+                
+                expect(res.body).to.not.be.an('object');
+                
+
+                // Important that this is INSIDE the .end()
+                done();
+        });
+    });
+
+    it('Should add four users to users.json when test is passed', (done) => {
 
         chai
                 .request('http://localhost:3000/users/create')
