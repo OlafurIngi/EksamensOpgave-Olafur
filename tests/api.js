@@ -30,10 +30,6 @@ describe(`POST http://localhost:3000/users/create`, () => {
                 done();
         });
     });
-});
-
-
-describe(`POST http://localhost:3000/users/create`, () => {
     it('Should return true when user is created', (done) => {
 
         chai
@@ -52,11 +48,6 @@ describe(`POST http://localhost:3000/users/create`, () => {
                 done();
         });
     });
-});
-
-
-
-describe(`POST http://localhost:3000/users/create`, () => {
     it('Should add three users to users.json when test is passed', (done) => {
 
         chai
