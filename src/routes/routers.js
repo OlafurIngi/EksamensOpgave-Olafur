@@ -23,10 +23,10 @@ router.post("/create", (req, res) => {
 // POST method to log in, which calls the findUser method the database.js file
 router.post("/login", (req, res) => {
   const user = new userModel(req.body.email, req.body.password);
-  const found = database.findUser(user);
-  if (found) {
+  const TheUserDatabase = database.findUser(user);
+  if (TheUserDatabase) {
     // If the password and email of the user is the same as the password and email in the databate, send true
-    if (user.password == found.password) {
+    if (user.password == TheUserDatabase.password) {
       res.status(200).send(true);
     // Else send false
     } else {
@@ -35,13 +35,6 @@ router.post("/login", (req, res) => {
   } else {
     res.status(404).send(false);
   }
-});
-
-// DELETE method to delete a user, which calls the deleteUser method from the database.js file.
-router.delete("/delete", (req, res) => {
-  const user = new userModel(req.body.email, req.body.password);
-  database.deleteUser(user);
-  res.status(200).send(true);
 });
 
 // POST method to Update the user (NOT DONE)
@@ -65,6 +58,16 @@ router.put("/update", (req, res) => {
 
   return res.status(201).json(account);
 })
+
+
+// DELETE method to delete a user, which calls the deleteUser method from the database.js file.
+router.delete("/delete", (req, res) => {
+  const user = new userModel(req.body.email, req.body.password);
+  database.deleteUser(user);
+  res.status(200).send(true);
+});
+
+
 
 
 

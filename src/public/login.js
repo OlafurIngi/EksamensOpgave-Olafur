@@ -41,8 +41,6 @@ document.addEventListener("DOMContentLoaded", (event) => {
       body: JSON.stringify(user),
 
     })
-
-
       // If the res is found in the JSON database, go to the dashboard
       // else prompt wrong information to the user
       // If there is an error catch it and prompt an error message
