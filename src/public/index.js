@@ -117,13 +117,13 @@ document.addEventListener("DOMContentLoaded", (event) => {
         console.log(res);
 
         // For each element produce the data of heading
-        res.forEach((e) => {
+        res.forEach((element) => {
           table.innerHTML += `
-          <tr>
-            <td>${e.title}</td>
-            <td>${e.price}</td>
-            <td>${e.brand}</td>
-            <td> <img src="${e.thumbnail}" style="height:100px; width:100px;"</td>
+          <tr class='phoneTableRow'>
+            <td>${element.title}</td>
+            <td>${element.price}</td>
+            <td>${element.brand}</td>
+            <td> <img src="${element.thumbnail}" style="height:100px; width:100px;"</td>
           </tr>
           `
           });
@@ -133,7 +133,46 @@ document.addEventListener("DOMContentLoaded", (event) => {
 
 
 // View categories functionality (NOT DONE)
+document.addEventListener("DOMContentLoaded", (event) => {
+  category = document.getElementById("brandCategory");
 
+  category.addEventListener("change", (event) => {
+    event.preventDefault();
+
+    const val = document.getElementById("brandCategory");
+    const endpoint = "http://localhost:3000/products/category/" + val.value;
+
+    const trs = document.getElementById(".phoneTableRow");
+
+    for (const el of trs) {
+      el.parentNode.removeChild(el);
+    }
+
+    fetch(endpoint, {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+      },
+    })
+    .then((res) => res.json())
+    .then((res) => {
+      // For each element produce the data of heading
+      res.forEach((element) => {
+        var html = "<tr class='phoneTableRow'>";
+        html += `<td>${element.title}</td>`;
+        html += `<td>${element.price}</td>`;
+        html += `<td>${element.brand}</td>`;
+        html += `<td> <img src="${element.thumbnail}" style="height:100px; width:100px;"</td>`;
+        html += "</tr>";
+
+        document.getElementById("submitForm").innerHTML += html;
+        });
+      })
+      .catch(() => {
+        window.alert("Error, try again");
+      });
+  });
+});
 
 
 // Delete your product functionality (NOT DONE)

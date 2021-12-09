@@ -88,8 +88,8 @@ router.get('/items', (req, res) => {
 })
 
 // Get method to get Phone category
-router.get('/category', (req, res) => {
-  res.json(productData.brand);
+router.get("/category", (req, res) => {
+  res.json(productData);
 })
 
 // Delete method to delete a product (NOT DONE)
